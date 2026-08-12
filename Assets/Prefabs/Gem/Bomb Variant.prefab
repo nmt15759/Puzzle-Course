@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3473502037114917855
+--- !u!1001 &131109089484116895
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8122397116408231094, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.86410254
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8122397116408231094, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.93846154
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4454582084425587937, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.89
+      value: -1.12154
       objectReference: {fileID: 0}
     - target: {fileID: 4454582084425587937, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.92
+      value: 4.53768
       objectReference: {fileID: 0}
     - target: {fileID: 4454582084425587937, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
       propertyPath: m_LocalPosition.z
@@ -59,18 +59,22 @@ PrefabInstance:
     - target: {fileID: 5470732094672472605, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6bb7c00a68de1634cbee8574d8499804, type: 3}
+      objectReference: {fileID: 21300000, guid: d1c82e015b38d4448bc1ba5e3eff90fa, type: 3}
     - target: {fileID: 7058569513495428485, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
       propertyPath: type
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058569513495428485, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
+      propertyPath: blastRadius
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7058569513495428485, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
       propertyPath: destroyEffect
       value: 
-      objectReference: {fileID: 3233035884892512764, guid: 647f0ac9f31caac43bd617bea922db11, type: 3}
+      objectReference: {fileID: 4259661453621494967, guid: b7d4a2f696beca340bafa78af42cd9b6, type: 3}
     - target: {fileID: 7955895334952445564, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
       propertyPath: m_Name
-      value: Gem - Yellow Variant
+      value: Bomb Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

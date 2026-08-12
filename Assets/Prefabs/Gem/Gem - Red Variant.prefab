@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8122397116408231094, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.8102564
+      objectReference: {fileID: 0}
+    - target: {fileID: -8122397116408231094, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.9358974
+      objectReference: {fileID: 0}
     - target: {fileID: 4454582084425587937, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.48
@@ -52,6 +60,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 15913fd90bd479a45a568c3067a75c5d, type: 3}
+    - target: {fileID: 7058569513495428485, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058569513495428485, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 8308714693038120283, guid: 5aa89ce2b5eab5a4da214251b3e4794b, type: 3}
     - target: {fileID: 7955895334952445564, guid: 59c855647c97c2e4cbf7f30eaa99a078, type: 3}
       propertyPath: m_Name
       value: Gem - Red Variant
