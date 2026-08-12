@@ -5,13 +5,20 @@ public class UIManager : MonoBehaviour
     public TMP_Text timeText;
     public TMP_Text scoreText;
     public GameObject RoundOverScreen;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public TMP_Text winScore;
+    public TMP_Text winText;
+    public GameObject winStars1, winStars2, winStars3;
+
     void Start()
     {
-        
+        winStars1.SetActive(false);
+        winStars2.SetActive(false);
+        winStars3.SetActive(false);
+
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         

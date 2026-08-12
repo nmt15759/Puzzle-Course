@@ -20,6 +20,7 @@ public class Gem : MonoBehaviour
     private Vector2Int PreviousPos;
     public GameObject destroyEffect;
     public int blastRadius = 2;
+    public int scoreValue = 10;
 
     private void Update()
     {

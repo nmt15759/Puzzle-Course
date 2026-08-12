@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RoundManager : MonoBehaviour
 {
@@ -6,6 +6,13 @@ public class RoundManager : MonoBehaviour
     private UIManager uiMan;
     private bool endingRound = false;
     private Board board;
+    [HideInInspector]
+    public int currentScore;
+    [HideInInspector]
+    public float displayScore;
+    public float scoreSpeed;
+    public int scoreTarget1, scoreTarget2, scoreTarget3;
+
   
     private void Awake()
     {
@@ -32,10 +39,35 @@ public class RoundManager : MonoBehaviour
             endingRound = false;
         }
 
-        uiMan.timeText.text = roundTime.ToString("0.0") + "s"; 
+
+        uiMan.timeText.text = roundTime.ToString("0.0") + "s";
+
+        displayScore = Mathf.Lerp(displayScore, currentScore, scoreSpeed * Time.deltaTime);
+        uiMan.scoreText.text = displayScore.ToString("0");
     }
     private void WinCheck()
     {
         uiMan.RoundOverScreen.SetActive(true);
+        uiMan.winScore.text = currentScore.ToString();
+
+        if(currentScore >= scoreTarget3)
+        {
+            uiMan.winText.text = "Chúc Mừng!  Bạn được 3 sao !!";
+            uiMan.winStars3.SetActive(true);
+        }
+        else if (currentScore >= scoreTarget2)
+        {
+            uiMan.winText.text = "Chúc Mừng Bạn được 2 sao !!";
+            uiMan.winStars2.SetActive(true);
+        }
+        else if (currentScore >= scoreTarget1)
+        {
+            uiMan.winText.text = "Chúc Mừng Bạn được 1 sao !!";
+            uiMan.winStars1.SetActive(true);
+        }
+        else
+        {
+            uiMan.winText.text = "Bạn không nhận được sao nào cả!! Thử lại ?";
+        }
     }
 }
