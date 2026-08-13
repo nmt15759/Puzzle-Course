@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class RoundManager : MonoBehaviour
     private UIManager uiMan;
     private bool endingRound = false;
     private Board board;
-    [HideInInspector]
+
     public int currentScore;
     [HideInInspector]
     public float displayScore;
@@ -54,16 +55,25 @@ public class RoundManager : MonoBehaviour
         {
             uiMan.winText.text = "Chúc Mừng!  Bạn được 3 sao !!";
             uiMan.winStars3.SetActive(true);
+
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star2", 2);
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star3", 3);
         }
         else if (currentScore >= scoreTarget2)
         {
             uiMan.winText.text = "Chúc Mừng Bạn được 2 sao !!";
             uiMan.winStars2.SetActive(true);
+
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star2", 2);
         }
         else if (currentScore >= scoreTarget1)
         {
             uiMan.winText.text = "Chúc Mừng Bạn được 1 sao !!";
             uiMan.winStars1.SetActive(true);
+
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
         }
         else
         {

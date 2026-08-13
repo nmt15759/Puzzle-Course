@@ -388,7 +388,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Board
   width: 8
   height: 8
-  bgTilePrefab: {fileID: 9219380662637753544, guid: dba31260c4ded0b48a1f6bb0611bf3e0, type: 3}
+  bgTilePrefabs: {fileID: 0}
+  gems: []
+  gemSpeed: 0
+  matchFinder: {fileID: 0}
+  currentState: 0
+  bomb: {fileID: 0}
+  bombChance: 2
+  roundMan: {fileID: 0}
+  bonusAmount: 0.5
 --- !u!4 &1874661008
 Transform:
   m_ObjectHideFlags: 0
