@@ -79,5 +79,7 @@ public class RoundManager : MonoBehaviour
         {
             uiMan.winText.text = "Bạn không nhận được sao nào cả!! Thử lại ?";
         }
+
+        SFXManager.instance.PlayRoundOverSound();
     }
 }
