@@ -14,13 +14,14 @@ public class Gem : MonoBehaviour
     private bool mousePressed;
     private float swipeAngle = 0;
     private Gem otherGem;
-    public enum gemType { blue,green,purple,red,yellow,bomb,stone }
+    public enum gemType { blue,green,purple,red,yellow,bomb,stone,heart }
     public gemType type;
     public bool isMatched;
     private Vector2Int PreviousPos;
     public GameObject destroyEffect;
     public int blastRadius = 2;
     public int scoreValue = 10;
+    
 
     private void Update()
     {
@@ -51,6 +52,12 @@ public class Gem : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if(type == gemType.stone)
+        {
+            mousePressed = false;
+            return;
+        }
+
         if (board.currentState == Board.BoardState.move && board.roundMan.roundTime > 0)
         {
             firstTouchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -70,6 +77,11 @@ public class Gem : MonoBehaviour
     }
     private void MovePieces()
     {
+        if (type == gemType.stone)
+        {
+            mousePressed = false;
+            return;
+        }
         PreviousPos = posIndex;
         otherGem = null;                                            
 

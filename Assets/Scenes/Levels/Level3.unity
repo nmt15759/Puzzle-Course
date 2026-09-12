@@ -1043,6 +1043,8 @@ MonoBehaviour:
   bombChance: 2
   roundMan: {fileID: 0}
   bonusAmount: 0.5
+  heart: {fileID: 5650735500708687211, guid: 4c818e3e0943f314795551d5add69a7c, type: 3}
+  heartChance: 4
 --- !u!4 &1874661008
 Transform:
   m_ObjectHideFlags: 0

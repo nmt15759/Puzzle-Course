@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
@@ -67,6 +67,7 @@ public class MatchFinder : MonoBehaviour
             currentMatches = currentMatches.Distinct().ToList();
         }
         Checkforbomb();
+        CheckForHeart();
     }
     public void Checkforbomb()
     {
@@ -139,4 +140,55 @@ public class MatchFinder : MonoBehaviour
         }
         currentMatches = currentMatches.Distinct().ToList();
     }
+
+    public void CheckForHeart()
+    {
+        for (int i = 0; i < currentMatches.Count; i++)
+        {
+            Gem gem = currentMatches[i];
+            int x = gem.posIndex.x;
+            int y = gem.posIndex.y;
+         
+            if (x > 0 && board.allGem[x - 1, y] != null && board.allGem[x - 1, y].type == Gem.gemType.heart)
+                MarkHeartArea(new Vector2Int(x - 1, y), true);
+
+            if (x < board.width - 1 && board.allGem[x + 1, y] != null && board.allGem[x + 1, y].type == Gem.gemType.heart)
+                MarkHeartArea(new Vector2Int(x + 1, y), true);
+           
+
+            if (y > 0 && board.allGem[x, y - 1] != null && board.allGem[x, y - 1].type == Gem.gemType.heart)
+                MarkHeartArea(new Vector2Int(x, y - 1), false);
+
+            if (y < board.height - 1 && board.allGem[x, y + 1] != null && board.allGem[x, y + 1].type == Gem.gemType.heart)
+                MarkHeartArea(new Vector2Int(x, y + 1), false);
+        }
+    }
+
+    public void MarkHeartArea(Vector2Int heartPos, bool clearRow)
+    {
+        if (clearRow)
+        {
+            for (int x = 0; x < board.width; x++)
+            {
+                if (board.allGem[x, heartPos.y] != null)
+                {
+                    board.allGem[x, heartPos.y].isMatched = true;
+                    currentMatches.Add(board.allGem[x, heartPos.y]);
+                }
+            }
+        }
+        else
+        {
+            for (int y = 0; y < board.height; y++)
+            {
+                if (board.allGem[heartPos.x, y] != null)
+                {
+                    board.allGem[heartPos.x, y].isMatched = true;
+                    currentMatches.Add(board.allGem[heartPos.x, y]);
+                }
+            }
+        }
+        currentMatches = currentMatches.Distinct().ToList();
+    }
 }
+

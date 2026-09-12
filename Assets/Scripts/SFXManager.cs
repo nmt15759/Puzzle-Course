@@ -9,7 +9,7 @@ public class SFXManager : MonoBehaviour
         instance = this;
     }
 
-    public AudioSource gemSound, explodeSound, stoneSound, roundOverSound;
+    public AudioSource gemSound, explodeSound, stoneSound, heartSound, roundOverSound;
 
     public void PlayGemBreak()
     {
@@ -36,6 +36,15 @@ public class SFXManager : MonoBehaviour
         stoneSound.pitch = Random.Range(0.8f, 1.2f);
 
         stoneSound.Play();
+    }
+
+    public void PlayHeartBreak()
+    {
+        heartSound.Stop();  
+
+        heartSound.pitch = Random.Range(0.8f, 1.2f);
+
+        heartSound.Play();
     }
 
     public void PlayRoundOverSound()

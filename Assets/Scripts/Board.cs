@@ -1,7 +1,8 @@
-
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Gem;
 
 public class Board : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class Board : MonoBehaviour
     public RoundManager roundMan;
     private float bonusMulti;
     public float bonusAmount = .5f;
+    public Gem heart;
+    public float heartChance = 4f;
+    public int maxShuffle = 3;
+    private int shuffleCount = 0;
+
 
     private BoardLayout boardLayout;
     private Gem[,] layoutStore; 
@@ -89,6 +95,10 @@ public class Board : MonoBehaviour
         {
             gemToSpawn = bomb;
         }
+        else if (Random.Range(0f,100f) < heartChance)
+        {
+            gemToSpawn = heart;
+        }
             Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y + height, 0f), Quaternion.identity);
             gem.transform.parent = transform;
             gem.name = "Gem - " + pos.x + "," + pos.y;
@@ -129,6 +139,10 @@ public class Board : MonoBehaviour
                 else if (allGem[pos.x,pos.y].type == Gem.gemType.stone)
                 {
                     SFXManager.instance.PlayStoneBreak();
+                }
+                else if (allGem[pos.x,pos.y].type == Gem.gemType.heart)
+                {
+                    SFXManager.instance.PlayHeartBreak();
                 }
                 else
                 {
@@ -246,6 +260,11 @@ public class Board : MonoBehaviour
     {
         if (currentState != BoardState.wait)
         {
+            if (shuffleCount >= maxShuffle)
+            {
+                return;
+            }
+            shuffleCount++;
             currentState = BoardState.wait;
 
             List<Gem> gemsFromBroad = new List<Gem>();
@@ -254,9 +273,11 @@ public class Board : MonoBehaviour
             {
                 for (int y = 0; y < height; y++)
                 {
-                    gemsFromBroad.Add(allGem[x, y]);
-                    allGem[x, y] = null;
-
+                    if (allGem[x, y] != null && allGem[x, y].type != gemType.stone)
+                    {
+                        gemsFromBroad.Add(allGem[x, y]);
+                        allGem[x, y] = null;
+                    }
                 }
             }
 
@@ -264,24 +285,39 @@ public class Board : MonoBehaviour
             {
                 for (int y = 0; y < height; y++)
                 {
+                    if (allGem[x, y] != null && allGem[x, y].type == gemType.stone)
+                    {
+                        continue;
+                    }
+
+                    if (gemsFromBroad.Count == 0)
+                    {
+                        continue;
+                    }
+
                     int gemToUse = Random.Range(0, gemsFromBroad.Count);
 
                     int chongloi = 0;
-                    while(MatchAt(new Vector2Int(x,y), gemsFromBroad[gemToUse]) && chongloi < 100 && gemsFromBroad.Count > 1)
+
+                    while (MatchAt(
+                        new Vector2Int(x, y),gemsFromBroad[gemToUse]) && chongloi < 100 && gemsFromBroad.Count > 1)
                     {
                         gemToUse = Random.Range(0, gemsFromBroad.Count);
                         chongloi++;
                     }
 
-                    gemsFromBroad[gemToUse].SetUpGem(new Vector2Int(x, y), this);
-                    allGem[x, y] = gemsFromBroad[gemToUse];
+                    Gem selectedGem = gemsFromBroad[gemToUse];
+
+                    selectedGem.SetUpGem(new Vector2Int(x, y),this);
+                    selectedGem.transform.position = new Vector3(x, y, 0f);
+
+                    allGem[x, y] = selectedGem;
+
                     gemsFromBroad.RemoveAt(gemToUse);
                 }
             }
-            StartCoroutine(FillBoard());
+            currentState = BoardState.move;
         }
-
-
     }
     public void ScoreCheck( Gem gemToCheck)
     {
