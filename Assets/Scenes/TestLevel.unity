@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -348,6 +349,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8cb7a259e6722449a9c4ff8077d583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  designAspect: 1.7777778
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,11 +559,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!1 &725308350 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1478488344543200448, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
-  m_PrefabInstance: {fileID: 7534585568140011931}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1591639126
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +873,7 @@ MonoBehaviour:
   bonusAmount: 0.5
   heart: {fileID: 5650735500708687211, guid: 4c818e3e0943f314795551d5add69a7c, type: 3}
   heartChance: 4
+  maxShuffle: 3
 --- !u!4 &1874661008
 Transform:
   m_ObjectHideFlags: 0
@@ -947,21 +957,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1478488344543200448, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2186918378687087950, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
       propertyPath: m_Name
       value: UI Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 4752248330642458819, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
-      propertyPath: pauseScreen
-      value: 
-      objectReference: {fileID: 725308350}
-    - target: {fileID: 4812960968776584343, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6007395794502610084, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
       propertyPath: m_Pivot.x
