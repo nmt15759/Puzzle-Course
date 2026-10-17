@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: 8edc27c0cd5095242bb73a058f075b22, type: 2}
   m_ModifiedSerializedProperties: 2
   m_ValidKeywords:
+  - OUTLINE_ON
   - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 1
@@ -27,7 +28,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _FaceDilate: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.059
     - _ScaleRatioB: 1
     - _ScaleRatioC: 0.73125
     - _UnderlayDilate: 0.67

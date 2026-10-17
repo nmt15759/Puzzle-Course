@@ -318,7 +318,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.27
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1010,13 +1010,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60002fe1bdc3ddf42968174e3aaf955c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  roundTime: 60
+  roundTime: 100
   currentScore: 0
   displayScore: 0
   scoreSpeed: 5
   scoreTarget1: 500
   scoreTarget2: 1500
   scoreTarget3: 2000
+  useObjective: 1
+  objectiveGemType: 2
+  objectiveAmount: 15
+  objectiveProgress: 0
+  maxMoves: 0
+  movesLeft: 0
 --- !u!4 &1738121097
 Transform:
   m_ObjectHideFlags: 0
@@ -1042,6 +1048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1874661008}
   - component: {fileID: 1874661007}
+  - component: {fileID: 1874661009}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -1074,11 +1081,9 @@ MonoBehaviour:
   matchFinder: {fileID: 1621411439}
   currentState: 0
   bomb: {fileID: 6927900268441726490, guid: 3621eb21071131d408f8cedebe491ef9, type: 3}
-  bombChance: 2
   roundMan: {fileID: 0}
   bonusAmount: 0.5
   heart: {fileID: 5650735500708687211, guid: 4c818e3e0943f314795551d5add69a7c, type: 3}
-  heartChance: 4
   maxShuffle: 3
 --- !u!4 &1874661008
 Transform:
@@ -1098,6 +1103,19 @@ Transform:
   - {fileID: 1693486580}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1874661009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874661006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65943fba77c4c544d9a880db261586b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoardLayout
+  allRows: []
 --- !u!1001 &7534585568140011931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1106,9 +1124,19 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 555293245389615729, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -378
+      objectReference: {fileID: 0}
     - target: {fileID: 2186918378687087950, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
       propertyPath: m_Name
       value: UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2602319014503161497, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
+      propertyPath: m_text
+      value: '
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 6007395794502610084, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
       propertyPath: m_Pivot.x

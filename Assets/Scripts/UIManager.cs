@@ -1,3 +1,4 @@
+﻿using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,10 @@ public class UIManager : MonoBehaviour
     private Board theBoard;
     public string LevelSelect;
     public GameObject pauseScreen;
+    public TMP_Text objectiveText;
+    public TMP_Text movesText;
+    public TMP_Text comboText;
+    private Coroutine comboRoutine;
 
 
     private void Awake()
@@ -23,6 +28,11 @@ public class UIManager : MonoBehaviour
         winStars1.SetActive(false);
         winStars2.SetActive(false);
         winStars3.SetActive(false);
+
+        if (comboText != null)
+        {
+            comboText.gameObject.SetActive(false);
+        }
     }
 
 
@@ -61,6 +71,46 @@ public class UIManager : MonoBehaviour
     }
     public void TryAgain()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+ 
+    public void ShowCombo(int combo)
+    {
+        if (comboText == null)
+        {
+            return;
+        }
+
+        comboText.text = "Combo x" + combo + "!";
+
+        if (comboRoutine != null)
+        {
+            StopCoroutine(comboRoutine);
+        }
+        comboRoutine = StartCoroutine(ComboPop());
+    }
+
+    private IEnumerator ComboPop()
+    {
+        comboText.gameObject.SetActive(true);
+        Transform t = comboText.transform;
+
+        float time = 0f;
+        float popDuration = 0.25f;
+        while (time < popDuration)
+        {
+            time += Time.deltaTime;
+            float s = Mathf.Lerp(1.6f, 1f, time / popDuration);
+            t.localScale = new Vector3(s, s, 1f);
+            yield return null;
+        }
+        t.localScale = Vector3.one;
+
+        yield return new WaitForSeconds(1f);
+
+        comboText.gameObject.SetActive(false);
+        comboRoutine = null;
     }
 }
