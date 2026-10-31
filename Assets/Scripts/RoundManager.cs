@@ -45,7 +45,8 @@ public class RoundManager : MonoBehaviour
 
     void Update()
     {
-        if (roundTime > 0 && !endingRound && !roundFinished)
+        // thời gian chỉ chạy khi bảng đang ở trạng thái chờ người chơi; đang nổ/combo thì dừng
+        if (roundTime > 0 && !endingRound && !roundFinished && board.currentState == Board.BoardState.move)
         {
             roundTime -= Time.deltaTime;
             if (roundTime <= 0)
@@ -92,7 +93,7 @@ public class RoundManager : MonoBehaviour
 
         if (movesLeft <= 0)
         {
-            endingRound = true;   
+            endingRound = true;
         }
     }
 

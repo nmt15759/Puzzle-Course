@@ -90,7 +90,9 @@ public class Board : MonoBehaviour
     }
     private void SpawnGem(Gem gemToSpawn, Vector2Int pos)
     {
-        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y + height, 0f), Quaternion.identity);
+        // ô nằm dưới stone thì gem mới chỉ rơi từ ngay trên ô đó, không xuyên qua stone
+        float startY = StoneAbove(pos.x, pos.y) ? pos.y + 1f : pos.y + height;
+        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, startY, 0f), Quaternion.identity);
         gem.transform.parent = transform;
         gem.name = "Gem - " + pos.x + "," + pos.y;
         allGem[pos.x, pos.y] = gem;
@@ -98,22 +100,22 @@ public class Board : MonoBehaviour
 
     }
 
- 
+
     private void SpawnPendingSpecials()
     {
         for (int i = 0; i < matchFinder.pendingSpecials.Count; i++)
         {
             MatchFinder.SpecialSpawn spawn = matchFinder.pendingSpecials[i];
 
-          
+
             Gem prefab = (spawn.type == gemType.heart) ? heart : bomb;
             if (prefab == null)
             {
-                continue;  
+                continue;
             }
             if (allGem[spawn.pos.x, spawn.pos.y] != null)
             {
-                continue;  
+                continue;
             }
 
             Gem gem = Instantiate(prefab, new Vector3(spawn.pos.x, spawn.pos.y, 0f), Quaternion.identity);
@@ -123,6 +125,18 @@ public class Board : MonoBehaviour
             gem.SetUpGem(spawn.pos, this);
         }
         matchFinder.pendingSpecials.Clear();
+    }
+
+    private bool StoneAbove(int x, int y)
+    {
+        for (int yy = y + 1; yy < height; yy++)
+        {
+            if (allGem[x, yy] != null && allGem[x, yy].type == gemType.stone)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     bool MatchAt(Vector2Int posToCheck, Gem gemToCheck)
@@ -180,13 +194,13 @@ public class Board : MonoBehaviour
             if (matchFinder.currentMatches[i] != null)
             {
                 ScoreCheck(matchFinder.currentMatches[i]);
-                roundMan.CollectGem(matchFinder.currentMatches[i].type);  
+                roundMan.CollectGem(matchFinder.currentMatches[i].type);
 
                 DestroyMatchedAt(matchFinder.currentMatches[i].posIndex);
             }
         }
 
-        SpawnPendingSpecials();  
+        SpawnPendingSpecials();
 
         StartCoroutine(DecreaseRow());
     }
@@ -200,7 +214,12 @@ public class Board : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if (allGem[x, y] == null)
+                if (allGem[x, y] != null && allGem[x, y].type == gemType.stone)
+                {
+                    // stone đứng yên: gem phía trên chỉ rơi tới sát stone, không xuyên qua
+                    nullCounter = 0;
+                }
+                else if (allGem[x, y] == null)
                 {
                     nullCounter++;
                 }
@@ -229,7 +248,7 @@ public class Board : MonoBehaviour
         {
             bonusMulti++;
 
-          
+
             if (uiMan != null)
             {
                 uiMan.ShowCombo(Mathf.RoundToInt(bonusMulti) + 1);

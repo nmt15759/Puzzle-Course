@@ -18,7 +18,7 @@ public class Gem : MonoBehaviour
     public enum gemType { blue, green, purple, red, yellow, bomb, stone, heart }
     public gemType type;
 
-    
+
     public bool IsNormal { get { return type <= gemType.yellow; } }
 
     public bool isMatched;
@@ -87,35 +87,43 @@ public class Gem : MonoBehaviour
             mousePressed = false;
             return;
         }
-        PreviousPos = posIndex;
-        otherGem = null;
+
+        Vector2Int direction = Vector2Int.zero;
 
         if (swipeAngle < 45 && swipeAngle > -45 && posIndex.x < board.width - 1)          // right
         {
-            otherGem = board.allGem[posIndex.x + 1, posIndex.y];
-            otherGem.posIndex.x--;
-            posIndex.x++;
+            direction = Vector2Int.right;
         }
         else if (swipeAngle > 45 && swipeAngle <= 135 && posIndex.y < board.height - 1)   // up
         {
-            otherGem = board.allGem[posIndex.x, posIndex.y + 1];
-            otherGem.posIndex.y--;
-            posIndex.y++;
+            direction = Vector2Int.up;
         }
         else if (swipeAngle < -45 && swipeAngle >= -135 && posIndex.y > 0)                // down
         {
-            otherGem = board.allGem[posIndex.x, posIndex.y - 1];
-            otherGem.posIndex.y++;
-            posIndex.y--;
+            direction = Vector2Int.down;
         }
         else if ((swipeAngle > 135 || swipeAngle < -135) && posIndex.x > 0)               // left
         {
-            otherGem = board.allGem[posIndex.x - 1, posIndex.y];
-            otherGem.posIndex.x++;
-            posIndex.x--;
+            direction = Vector2Int.left;
         }
 
-        if (otherGem == null) return;
+        if (direction == Vector2Int.zero) return;
+
+        Vector2Int targetPos = posIndex + direction;
+        Gem targetGem = board.allGem[targetPos.x, targetPos.y];
+
+        // Stone đứng yên: không bị hoán đổi, gem khác cũng không thể vào ô của stone.
+        // (ô trống cũng không hoán đổi được)
+        if (targetGem == null || targetGem.type == gemType.stone)
+        {
+            return;
+        }
+
+        PreviousPos = posIndex;
+        otherGem = targetGem;
+
+        otherGem.posIndex = posIndex;
+        posIndex = targetPos;
 
         board.allGem[posIndex.x, posIndex.y] = this;
         board.allGem[otherGem.posIndex.x, otherGem.posIndex.y] = otherGem;
@@ -153,7 +161,7 @@ public class Gem : MonoBehaviour
             }
             else
             {
-               
+
                 board.roundMan.UseMove();
                 board.DestroyMatches();
             }

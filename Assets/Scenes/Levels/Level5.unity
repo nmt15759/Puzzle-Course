@@ -998,9 +998,9 @@ MonoBehaviour:
   currentScore: 0
   displayScore: 0
   scoreSpeed: 5
-  scoreTarget1: 1600
-  scoreTarget2: 3600
-  scoreTarget3: 6000
+  scoreTarget1: 6666
+  scoreTarget2: 9666
+  scoreTarget3: 16666
   useObjective: 1
   objectiveGemType: 6
   objectiveAmount: 14
@@ -1503,7 +1503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7536266578899965832, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
       propertyPath: m_text
-      value: You Won !!
+      value: Game Over !!
       objectReference: {fileID: 0}
     - target: {fileID: 7536266578899965832, guid: 29945ede96ed2e34eaeedaf34c98f9fc, type: 3}
       propertyPath: m_VerticalAlignment

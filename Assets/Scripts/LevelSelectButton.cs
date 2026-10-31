@@ -1,33 +1,41 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class LevelSelectButton : MonoBehaviour
 {
-    public string levelToLoad;
-    public GameObject star1, star2, star3;
-    public void Start()
+    [SerializeField] private string levelToLoad;
+    [SerializeField] private string previousLevel;   // màn phải hoàn thành trước; để trống = màn đầu, luôn mở
+    [SerializeField] private GameObject star1, star2, star3;
+
+    private bool isUnlocked;
+
+    private void Start()
     {
-        star1.SetActive(false);
-        star2.SetActive(false);
-        star3.SetActive(false);
+        star1.SetActive(PlayerPrefs.HasKey(levelToLoad + "_Star1"));
+        star2.SetActive(PlayerPrefs.HasKey(levelToLoad + "_Star2"));
+        star3.SetActive(PlayerPrefs.HasKey(levelToLoad + "_Star3"));
 
-        if(PlayerPrefs.HasKey(levelToLoad + "_Star1"))
-        {
-            star1.SetActive(true);
-        }
+        // hoàn thành màn trước = đạt ít nhất 1 sao
+        isUnlocked = string.IsNullOrEmpty(previousLevel) || PlayerPrefs.HasKey(previousLevel + "_Star1");
 
-        if(PlayerPrefs.HasKey(levelToLoad + "_Star2"))
-        {
-            star2.SetActive(true);
-        }
+        GetComponentInChildren<Button>().interactable = isUnlocked;
 
-        if(PlayerPrefs.HasKey(levelToLoad + "_Star3"))
+        // bật/tắt mọi object con có tên chứa "lock" (ví dụ Lock-icon)
+        foreach (Transform child in GetComponentsInChildren<Transform>(true))
         {
-            star3.SetActive(true);
+            if (child.name.ToLower().Contains("lock"))
+            {
+                child.gameObject.SetActive(!isUnlocked);
+            }
         }
     }
+
     public void LoadLevel()
     {
-        SceneManager.LoadScene(levelToLoad);
+        if (isUnlocked)
+        {
+            SceneManager.LoadScene(levelToLoad);
+        }
     }
-
 }

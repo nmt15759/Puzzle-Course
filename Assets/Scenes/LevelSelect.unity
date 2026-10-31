@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &404399704 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3712861517326754643, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-  m_PrefabInstance: {fileID: 6358836604554656001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &466670480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -144,6 +139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Select Button - L2
       objectReference: {fileID: 0}
+    - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 56f37f67952c59241a648edccf306126, type: 3}
     - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -301,6 +300,8 @@ MonoBehaviour:
   star1: {fileID: 466670484}
   star2: {fileID: 466670483}
   star3: {fileID: 466670482}
+  previousLevel: Level1
+  lockIcon: {fileID: 0}
 --- !u!1001 &692219802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -321,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Select Button - L3
       objectReference: {fileID: 0}
+    - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 56f37f67952c59241a648edccf306126, type: 3}
     - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -478,11 +483,8 @@ MonoBehaviour:
   star1: {fileID: 692219806}
   star2: {fileID: 692219805}
   star3: {fileID: 692219804}
---- !u!1 &1075787480 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7080237066233556919, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-  m_PrefabInstance: {fileID: 6358836604554656001}
-  m_PrefabAsset: {fileID: 0}
+  previousLevel: Level2
+  lockIcon: {fileID: 0}
 --- !u!1 &1120775360
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,11 +639,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1214745036 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 977491635564751917, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-  m_PrefabInstance: {fileID: 6358836604554656001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1341059876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -662,6 +659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Select Button - L4
       objectReference: {fileID: 0}
+    - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 56f37f67952c59241a648edccf306126, type: 3}
     - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -819,6 +820,8 @@ MonoBehaviour:
   star1: {fileID: 1341059880}
   star2: {fileID: 1341059879}
   star3: {fileID: 1341059878}
+  previousLevel: Level3
+  lockIcon: {fileID: 0}
 --- !u!1 &1352414473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +1523,10 @@ PrefabInstance:
       value: Level Select Button - L5
       objectReference: {fileID: 0}
     - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 56f37f67952c59241a648edccf306126, type: 3}
+    - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1688,6 +1695,8 @@ MonoBehaviour:
   star1: {fileID: 1745470767}
   star2: {fileID: 1745470766}
   star3: {fileID: 1745470765}
+  previousLevel: Level4
+  lockIcon: {fileID: 0}
 --- !u!1 &1772244342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,11 +1787,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772244342}
   m_CullTransparentMesh: 1
---- !u!1 &1933117411 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 494028564375022838, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-  m_PrefabInstance: {fileID: 6358836604554656001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1996032399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,22 +2092,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4712236183374586827, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
   m_PrefabInstance: {fileID: 6358836604554656001}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4207750210131536400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 404399704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c28bd7f67babb3348bd98a3c28bcdffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  levelToLoad: Level1
-  star1: {fileID: 1075787480}
-  star2: {fileID: 1933117411}
-  star3: {fileID: 1214745036}
 --- !u!1001 &6358836604554656001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2112,42 +2100,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1480618200}
     m_Modifications:
-    - target: {fileID: 1600229635334261043, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-      propertyPath: m_fontSize
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 3712861517326754643, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
       propertyPath: m_Name
       value: Level Select Button - L1
       objectReference: {fileID: 0}
     - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: m_SpriteState.m_DisabledSprite
       value: 
-      objectReference: {fileID: 4207750210131536400}
-    - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LevelSelectButton, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443449465139334139, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 56f37f67952c59241a648edccf306126, type: 3}
     - target: {fileID: 4712236183374586827, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2231,10 +2191,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3712861517326754643, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4207750210131536400}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f16feafa3d03149884a28d996122d2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

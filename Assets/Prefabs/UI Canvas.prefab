@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3207198092638193659}
   - component: {fileID: 3150055595149592419}
   m_Layer: 5
-  m_Name: Value BG (1)
+  m_Name: Score Value BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1296,7 +1296,7 @@ GameObject:
   - component: {fileID: 1514222641858216043}
   - component: {fileID: 4636417099534493758}
   m_Layer: 5
-  m_Name: Label BG (1)
+  m_Name: Score BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8296584, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.8296584, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1417,7 +1417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8296584, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.8296584, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2299,7 +2299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8296584, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.8296584, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2598,7 +2598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -356.62, y: 471.39}
+  m_AnchoredPosition: {x: -378, y: 471.39}
   m_SizeDelta: {x: 340.41, y: 97.809}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &497016403746550976
@@ -2854,7 +2854,7 @@ GameObject:
   - component: {fileID: 8420911520544549698}
   - component: {fileID: 8821782839153939412}
   m_Layer: 5
-  m_Name: 'Score Label '
+  m_Name: Score Remain Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3698,6 +3698,10 @@ PrefabInstance:
     - target: {fileID: 4207750209233018192, guid: 4060c48933fdc82459fa2fa5111beead, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549970357215896079, guid: 4060c48933fdc82459fa2fa5111beead, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
